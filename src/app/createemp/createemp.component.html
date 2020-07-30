@@ -1,0 +1,77 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+
+    
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form>  
+                    <fieldset>
+                        <legend class="text-center"> Employee  Details  <span class="req"><small>
+                                    </small></span></legend>
+                                    
+                        <div class="form-group">
+                            <label for="firstname"><span class="req">* </span> FirstName:  </label>
+                            <input required type="text" [(ngModel)]="employee.firstname" name="firstname "  #name="ngModel"
+                                class="form-control phone" maxlength="16"   placeholder=" FirstName" />
+                                </div>
+                                <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                class="alert alert-danger"></div>
+                                <div *ngIf="name.errors.required">
+                                firstname is required.
+                                  </div>
+                        
+                        <div class="form-group">
+                            <label for="lastname"><span class="req">* </span> LastName:  </label>
+                            <input required type="text" [(ngModel)]="employee.lastname" name="lastname"  #name="ngModel"
+                                class="form-control phone" maxlength="15" placeholder="LastName" />
+                                
+                                </div>
+                                <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                class="alert alert-danger"></div>
+                                <div *ngIf="name.errors.required">
+                                   LastName is required.
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="email"><span class="req">* </span> Email: </label>
+                                    <input class="form-control" type="text" [(ngModel)]="employee.email" name="email"  required
+                                    #Email="ngModel"   placeholder="Enter valid email address"      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                                    <div *ngIf="Email.errors && (Email.invalid || Email.touched)">
+                                        <small class="text-danger" *ngIf="Email.errors.required"> Email is required</small>
+                                        <small class="text-danger" *ngIf="Email.errors.pattern">Please provide a valid email address</small>
+                                      </div>
+                                    </div>
+                                          
+                                    <div class="form-group">
+                                      <label for="password"><span class="req">* </span> password:  </label>
+                                      <input required type="password" [(ngModel)]="employee.password" name="name" id="name"
+                                      #password="ngModel"  class="form-control phone" maxlength="10"  minlength="8"  placeholder="Enter your password..." pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                                      <div *ngIf="password && (password.invalid || password.touched)">
+                                          <small class="text-danger" *ngIf="password.errors.required"> password  is  required</small>
+                                          <small class="text-danger" *ngIf="password.errors.pattern">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</small>
+                                        </div>
+                                  </div>
+    
+                      <div class="form-group">
+                            <input class="btn btn-success" type="submit" name="createEmp" value="createEmp" (click)="newEmployee()">
+                            
+                        </div>
+                    </fieldset>
+               
+                   
+                </form><!-- ends register form -->
+                
+                <!-- second for to fiter user-->
+            </div><!-- ends col-6 -->
+    
+        </div>
+    </div>
+    
+    
+    
+    
+    

@@ -1,0 +1,49 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div style="text-align: center">
+  <h1>{{message}}</h1>
+
+<!--app.component.html-->
+<div class="container-fluid">
+    <form class="form" #loginForm="ngForm">
+     
+      <h2>Please provide your Login Details</h2>
+  <div class="form-group">
+        <label>EmailID:</label>
+        <input type="email" #Email="ngModel" [class.is-invalid]="Email.invalid && Email.touched" required
+          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control phone" name="Email"
+          [(ngModel)]="login.email"  placeholder="Enter valid email address" />
+  
+        <div *ngIf="Email.errors && (Email.invalid || Email.touched)">
+          <small class="text-danger" *ngIf="Email.errors.required"> Email is required</small>
+          <small class="text-danger" *ngIf="Email.errors.pattern">Please provide a valid email address</small>
+        </div>
+  
+      </div>
+  
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" required
+           class="form-control phone" name="password"
+          [(ngModel)]="login.password"  placeholder="Enter valid password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  required/>
+          <div *ngIf="password && (password.invalid || password.touched)">
+            <small class="text-danger" *ngIf="password.errors.required"> password is  required</small>
+            <small class="text-danger" *ngIf="password.errors.pattern">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</small>
+          </div>
+          
+          
+       </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="remember"> Remember me</label>                                                                                    
+          </div>  
+        
+    </form>
+    <div class="form-group">
+     <input class="btn btn-success" type="submit" name="submit_reg" value="Login" (click)="registerLogin()">  <br> 
+    
+     <small class="float-right" [routerLink]="['/register']"> New User ? Register First</small>
+  </div>
+
+
+  

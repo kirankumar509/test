@@ -1,0 +1,60 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                    <legend class="text-center"> <span class="req"><small>
+                              rider details  </small></span></legend>
+                             <div class="logo">
+                                <img src="../assets/hyd.jpeg" width="500" height="200">
+                                
+          </div>    
+                    <div class="form-group">
+                        <label for="ridername"><span class="req">* </span> RiderName:  </label>
+                        <input required type="text" [(ngModel)]="rider.ridername" name="ridername" #name="ngModel"
+                            class="form-control phone" maxlength="28" placeholder="Enter  ridername..." />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Email: </label>
+                        <input class="form-control" type="text" [(ngModel)]="rider.email" name="email"  required #Email="ngModel"
+                            placeholder="Enter valid email address..."   pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                            <div *ngIf="Email.errors && (Email.invalid || Email.touched)">
+                                <small class="text-danger" *ngIf="Email.errors.required"> Email is required</small>
+                                <small class="text-danger" *ngIf="Email.errors.pattern">Please provide a valid email address</small>
+                              </div>
+                             </div>
+                             
+                         <div class="form-group">
+                                <label for="startaddress"><span class="req">* </span> startaddress:  </label>
+                                <input required type="text" [(ngModel)]="rider.startaddress" name="startaddress" 
+                                    class="form-control phone" maxlength="28" placeholder="Enter  startaddress..." />
+                            </div>
+                            <div class="form-group">
+                                <label for="endaddress"><span class="req">* </span> endaddress:  </label>
+                                <input required type="text" [(ngModel)]="rider.endaddress" name="endaddress" 
+                                    class="form-control phone" maxlength="28" placeholder="Enter  endaddress..." />
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="registerRider()">
+                            </div>
+                        </fieldset>
+                        
+                    </form><!-- ends register form -->
+                    
+                </div><!-- ends col-6 -->
+        
+            </div>
+            </div>

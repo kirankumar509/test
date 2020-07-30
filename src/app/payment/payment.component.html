@@ -1,0 +1,107 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div style="text-align: center">
+  <h1>{{message}}</h1>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>  
+                <fieldset>
+                    <legend class="text-center"> Payment Details  <span class="req"><small>
+                                </small></span></legend>
+                                <div class="logo">
+                                    <img src="../assets/american-express-89024__340.webp" width="200" height="200">
+                                    
+              </div>    
+                    <div class="form-group">
+                        <label for="Number"><span class="req">* </span> CardNumber:  </label>
+                        <input required type="text" [(ngModel)]="payment.Number" name="Number"  #name="ngModel"
+                            class="form-control phone" maxlength="16"   placeholder="Enter your cardNumber..." />
+                            </div>
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                            class="alert alert-danger"></div>
+                            <div *ngIf="name.errors.required">
+                               cardtNumber is required.
+                              </div>
+                    
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> cardName:  </label>
+                        <input required type="text" [(ngModel)]="payment.Name" name="Name"  #name="ngModel"
+                            class="form-control phone" maxlength="15" placeholder="Enter your cardName..." />
+                            
+                            </div>
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                            class="alert alert-danger"></div>
+                            <div *ngIf="name.errors.required">
+                               cardName is required.
+                              </div>
+                              <div class="form-group">
+                                <label for="Month"><span class="req">* </span> Month:  </label>
+                                <input required type="text" [(ngModel)]="payment.Month" name="Month"  #name="ngModel"
+                                    class="form-control phone" maxlength="15" placeholder="MM..." />
+                                    
+                                    </div>
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                    class="alert alert-danger"></div>
+                                    <div *ngIf="name.errors.required">
+                                       Month is required.
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="Year"><span class="req">* </span> Year:  </label>
+                                        <input required type="text" [(ngModel)]="payment.Year" name="Year"  #name="ngModel"
+                                            class="form-control phone" maxlength="15" placeholder="YY..." />
+                                            
+                                            </div>
+                                            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                            class="alert alert-danger"></div>
+                                            <div *ngIf="name.errors.required">
+                                               Year is required.
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="Cvv"><span class="req">* </span> Cvv:  </label>
+                                                <input required type="text" [(ngModel)]="payment.Cvv" name="Cvv"  #name="ngModel"
+                                                    class="form-control phone" maxlength="15" placeholder="Cvv..." />
+                                                    
+                                                    </div>
+                                                    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                                    class="alert alert-danger"></div>
+                                                    <div *ngIf="name.errors.required">
+                                                       Cvv is required.
+                                                      </div>
+                                                      <div class="form-group">
+                                                        <label for="Price"><span class="req">* </span> Price:  </label>
+                                                        <input required type="text" [(ngModel)]="payment.Price" name="Price"  #name="ngModel"
+                                                            class="form-control phone" maxlength="15" placeholder="Price..." />
+                                                            
+                                                            </div>
+                                                            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                                            class="alert alert-danger"></div>
+                                                            <div *ngIf="name.errors.required">
+                                                               Price is required.
+                                                              </div>
+
+                  <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="paynow" value="paynow" (click)="paynow()">
+                        
+                    </div>
+                </fieldset>
+           
+               
+            </form><!-- ends register form -->
+            
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+
+
